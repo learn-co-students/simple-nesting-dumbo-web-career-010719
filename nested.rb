@@ -1,4 +1,6 @@
 
+require 'pry'
+#hopper, operates on the programmer_hash and returns the value of the :grace_hopper key
 def hopper
 	programmer_hash = 
  		{
@@ -16,7 +18,7 @@ def hopper
         }
      }
 
-
+    programmer_hash[:grace_hopper]
 end
 
 def alan_kay_is_known_for
@@ -24,21 +26,28 @@ def alan_kay_is_known_for
 	
 	programmer_hash = 
  		{
-        :grace_hopper => {
+        :grace_hopper => 
+        {
           :known_for => "COBOL",
           :languages => ["COBOL", "FORTRAN"]
         },
-        :alan_kay => {
+        :alan_kay => 
+        {
           :known_for => "Object Orientation",
           :languages => ["Smalltalk", "LISP"]
         },
-        :dennis_ritchie => {
+        :dennis_ritchie => 
+        {
           :known_for => "Unix",
           :languages => ["C"]
         }
      }
+     #programmer_hash[:grace_hopper][:known_for]
+     programmer_hash[:alan_kay][:known_for]
+     #programmer_hash[:dennis_ritchie][:known_for]
 end
-
+#dennis_ritchies_language - operates on the programmer_hash and returns the value of Dennis Ritchie's language 
+#asa string
 def dennis_ritchies_language
 	programmer_hash = 
  		{
@@ -50,11 +59,14 @@ def dennis_ritchies_language
           :known_for => "Object Orientation",
           :languages => ["Smalltalk", "LISP"]
         },
-        :dennis_ritchie => {
+        :dennis_ritchie => 
+        {
           :known_for => "Unix",
           :languages => ["C"]
         }
      }
+     
+     str_c=programmer_hash [:dennis_ritchie][:languages][0]
 end
 
 def adding_matz
@@ -66,23 +78,29 @@ def adding_matz
 
 	programmer_hash = 
  		{
-        :grace_hopper => {
+        :grace_hopper => 
+        {
           :known_for => "COBOL",
           :languages => ["COBOL", "FORTRAN"]
         },
-        :alan_kay => {
+        :alan_kay => 
+        {
           :known_for => "Object Orientation",
           :languages => ["Smalltalk", "LISP"]
         },
-        :dennis_ritchie => {
+        :dennis_ritchie => 
+        {
           :known_for => "Unix",
           :languages => ["C"]
         }
-     }
+    }
+       programmer_hash[:yukihiro_matsumoto]={:known_for => "Ruby", :languages => ["LISP", "C"] }
 
-    
+       programmer_hash
 end
 
+#changing_alan-operates on the programmer_hash and changes what Alan Kay is known for, 
+#returning the newly-changed hash
 def changing_alan
 	programmer_hash = 
  		{
@@ -101,10 +119,11 @@ def changing_alan
      }
      #change what Alan Kay is :known_for to the value of the alans_new_info variable. 
      alans_new_info = "GUI"
-     
-     
+     programmer_hash[:alan_kay][:known_for]=alans_new_info
+     programmer_hash
 end
-
+#adding_to_dennis-operates on the programmer_hash and adds 'Assembly' to Dennis Ritchie's languages,
+# returning the newly-added-to-hash 
 def adding_to_dennis
 	programmer_hash = 
  		{
@@ -121,5 +140,7 @@ def adding_to_dennis
           :languages => ["C"]
         }
      }
-
+     
+     programmer_hash [:dennis_ritchie][:languages].push ("Assembly")
+     programmer_hash
 end
